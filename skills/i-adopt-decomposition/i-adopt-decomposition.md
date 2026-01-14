@@ -5,13 +5,13 @@ description: Guidance and scripts for decomposing measurement columns using I-AD
 
 # I-ADOPT Decomposition
 
-Use this skill when decomposing measurement columns into I-ADOPT parts (property, entity, matrix/context, constraints, method) for salmon data.
+Use this skill when decomposing measurement columns into I-ADOPT parts (property, entity, matrix/context, constraints) plus an optional procedure/method link (`method_iri`, aligned to SOSA `sosa:Procedure`, where SOSA is the W3C/OGC observations vocabulary).
 
 ## Process (detailed, self contained)
 1) Understand the variable
 - What does it measure/represent? Quantitative or qualitative?
 - What units or value formats? (units hint at property)
-- How was it produced? (method, survey, model, gear)
+- How was it produced? (procedure/method, survey, model, gear)
 - What population and segment? (age, brood year, run timing, location, fishery)
 
 2) Identify I-ADOPT components
@@ -20,7 +20,7 @@ Use this skill when decomposing measurement columns into I-ADOPT parts (property
 - Matrix: embedding entity (e.g., WaterBody for concentrations) — optional.
 - Context objects: other involved entities (gear, site, life stage).
 - Constraints: facets narrowing scope (age, location, season, sex, fishery); keep atomic; separate multiples with `;`.
-- Method: how value obtained (survey, model, genetic assignment, gear).
+- Procedure/method: how value obtained (survey, model, genetic assignment, gear); capture in `method_iri` as a procedure/method IRI (not an I-ADOPT role).
 
 3) Map to IRIs (preferred vocabularies)
 - Salmon-specific: DFO Salmon Ontology (`https://w3id.org/gcdfo/salmon#`).
@@ -30,7 +30,8 @@ Use this skill when decomposing measurement columns into I-ADOPT parts (property
 - If missing, leave blank and stage a new term request (ontology-helpers + ontology-term-creation skill).
 
 4) Populate column_dictionary
-- Fill: term_iri, unit_iri, property_iri, entity_iri, constraint_iri, method_iri.
+- Fill: term_iri, unit_iri, property_iri, entity_iri, constraint_iri, method_iri (procedure/method IRI).
+- Treat `method_iri` as a procedure/method IRI (aligned to SOSA `sosa:Procedure`), not an I-ADOPT role.
 - Keep constraints atomic; join multiples with `;` in `constraint_iri`.
 - For categorical codes, use `codes.csv` with IRIs/labels.
 
@@ -38,7 +39,7 @@ Use this skill when decomposing measurement columns into I-ADOPT parts (property
 - Property aligns with unit (rate ↔ UNITLESS, length ↔ cm, mass ↔ g, count ↔ NUM).
 - Entity matches the thing measured (Spawner vs StockManagementUnit vs ConservationUnit vs Population).
 - Constraints cover every qualifier in the column name/definition (age, area, gear, brood vs return).
-- Method recorded when known; blank is acceptable but note if model-based.
+- Procedure/method recorded when known; blank is acceptable but note if model-based.
 
 6) If no suitable term
 - Leave unknown IRIs blank; add to `gpt_proposed_terms.csv` and launch a new-term issue via ontology-helpers script.
@@ -252,7 +253,7 @@ Always use QUDT for unit_iri:
 - `LRP`, `USR`, `BENCHMARK` → property_iri = reference point/benchmark; constraint indicates underlying metric (e.g., spawning abundance).
 - `HATCHERY`, `WILD`, `MARKED`, `UNMARKED` → constraint_iri for origin/mark-status.
 - `OCEAN`, `TERMINAL`, `MAINSTEM`, `TRIBUTARY` → constraint_iri for location segment.
-- `METHOD`, `MODEL`, `SURVEY` suffix → method_iri; do not place in constraint unless it filters scope.
+- `METHOD`, `MODEL`, `SURVEY` suffix → method_iri (procedure/method IRI); do not place in constraint unless it filters scope.
 
 ## Worked examples (expanded)
 - Age/location catch (MAINSTEM_AGE_3 in smu_timeseries)
@@ -261,7 +262,7 @@ Always use QUDT for unit_iri:
   - property_iri: http://qudt.org/vocab/quantitykind/Count
   - entity_iri: https://w3id.org/gcdfo/salmon#StockManagementUnit
   - constraint_iri: <age_3_IRI>;<mainstem_location_IRI>
-  - method_iri: <enumeration_method_IRI_if_applicable>
+  - method_iri: <procedure_or_method_IRI_if_applicable>
 - Exploitation rate (TOTAL_EXPLOITATION_RATE in smu_timeseries)
   - term_iri: https://w3id.org/gcdfo/salmon#TotalExploitationRate
   - unit_iri: http://qudt.org/vocab/unit/UNITLESS

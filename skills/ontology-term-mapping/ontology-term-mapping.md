@@ -39,10 +39,10 @@ When you return SDP metadata, keep outputs deterministic (deterministic means th
 4) codes.csv (include only when categorical columns exist)
 Place any notes or gpt_proposed_terms.csv after these blocks.
 
-## Measurement columns and I-ADOPT parts
+## Measurement columns and I-ADOPT parts (plus procedure/method)
 A measurement column is a column whose values are observed or computed quantities.
 I-ADOPT is a standard for describing variables by parts like property and entity.
-For measurement columns, include term_iri, unit_iri, property_iri, entity_iri; constraint_iri and method_iri are optional.
+For measurement columns, include term_iri, unit_iri, property_iri, entity_iri; constraint_iri is optional; method_iri is an optional procedure/method link (aligned to SOSA `sosa:Procedure`, where SOSA is the W3C/OGC observations vocabulary) and is not an I-ADOPT role.
 Do not include OWL examples for I-ADOPT decomposition; keep decomposition in fields only.
 
 ## I-ADOPT patterns for salmon metrics (worked examples)
@@ -52,7 +52,7 @@ Do not include OWL examples for I-ADOPT decomposition; keep decomposition in fie
   - property_iri: http://qudt.org/vocab/quantitykind/Count
   - entity_iri: https://w3id.org/gcdfo/salmon#StockManagementUnit
   - constraint_iri: <age_3_IRI>;<mainstem_location_IRI> (use `;` to separate multiple constraints)
-  - method_iri: <enumeration_method_IRI_if_applicable>
+  - method_iri: <procedure_or_method_IRI_if_applicable>
 - Location-stratified catch (ocean) (e.g., OCEAN_CATCH_TOTAL)
   - term_iri: http://rs.tdwg.org/dwc/terms/individualCount
   - unit_iri: http://qudt.org/vocab/unit/NUM
@@ -79,9 +79,10 @@ Do not include OWL examples for I-ADOPT decomposition; keep decomposition in fie
   - constraint_iri: <age_3_IRI>
 
 Tips from I-ADOPT:
-- Identify components: Property, Object of Interest, Matrix (if embedded), Context objects, Constraints, Method.
+- Identify components: Property, Object of Interest, Matrix (if embedded), Context objects, Constraints.
 - Use units to infer property when uncertain (unit → property lookup).
-- Keep method and constraints explicit; use `;` to separate multiple constraints.
+- If relevant, capture procedure/method explicitly in `method_iri` (aligned to SOSA `sosa:Procedure`).
+- Keep constraints explicit; use `;` to separate multiple constraints.
 
 ## Codes and skos:notation
 skos:notation is a code string attached to a SKOS concept.

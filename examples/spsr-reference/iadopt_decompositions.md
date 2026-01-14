@@ -1,6 +1,6 @@
 # I-ADOPT Decompositions for SPSR Measurement Columns
 
-This document provides complete I-ADOPT decompositions for all measurement columns in the SPSR data dictionary, following the I-ADOPT framework for observable properties.
+This document provides I-ADOPT-style decompositions for all measurement columns in the SPSR data dictionary, following the I-ADOPT framework for observable properties (property/entity/constraints) plus an optional procedure/method link (`method_iri`).
 
 ## I-ADOPT Framework Overview
 
@@ -8,7 +8,9 @@ The I-ADOPT framework decomposes observable properties into:
 - **property_iri**: What is being measured (e.g., count, rate, proportion)
 - **entity_iri**: What object/phenomenon is being observed (e.g., salmon stock, conservation unit)
 - **constraint_iri**: Constraints that narrow the observation (e.g., age class, location, time)
-- **method_iri**: How the measurement was made (optional, rarely specified in SPSR)
+
+SDP also allows an optional procedure/method link:
+- **method_iri**: Procedure/method IRI (aligned to SOSA `sosa:Procedure`, where SOSA is the W3C/OGC observations vocabulary). Optional; rarely specified in SPSR.
 
 Constraints are semicolon-separated when multiple apply (e.g., age AND location).
 

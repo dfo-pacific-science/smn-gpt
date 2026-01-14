@@ -33,7 +33,7 @@ SPECIFICATION.md is normative (normative means it defines what is valid). This g
 - property_iri: I-ADOPT property IRI; I-ADOPT is a standard for describing variables by parts like property and entity. Required when column_role is measurement.
 - entity_iri: I-ADOPT entity IRI. Required when column_role is measurement.
 - constraint_iri: I-ADOPT constraint IRI; multiple values separated by `;`. Optional.
-- method_iri: I-ADOPT method IRI. Optional.
+- method_iri: procedure/method IRI (aligns to SOSA `sosa:Procedure`; SOSA is the W3C/OGC observations vocabulary). Optional; fill when known. Not an I-ADOPT role.
 
 ## codes.csv fields
 - code_value: stored code value in the data.
