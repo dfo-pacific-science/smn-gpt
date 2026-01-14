@@ -1,0 +1,12 @@
+docs/
+schema/tables.csv
+SPECIFICATION.md
+README.md
+iadopt-terminologies.csv
+dfo-salmon.ttl
+CONVENTIONS.md
+CONTRIBUTING.md
+schema/codes.csv
+schema/column_dictionary.csv
+schema/dataset.csv
+schema/gpt_proposed_terms.csv

@@ -1,0 +1,2 @@
+dataset_id,table_id,file_name,table_label,description,observation_unit
+demo-salmon,observations,observations.csv,Observations,Salmon counts by date and site,sampling event

@@ -1,0 +1,24 @@
+name: Link Lint
+
+on:
+  pull_request:
+  push:
+    branches: [main, master]
+
+jobs:
+  lychee:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run lychee on key docs
+        uses: lycheeverse/lychee-action@v1
+        with:
+          args: >
+            --no-progress
+            --verbose
+            SYSTEM-PROMPT.md
+            docs/entrypoints.md
+            skills/**/*.md
+            examples/README.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

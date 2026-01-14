@@ -1,0 +1,2 @@
+dataset_id,title,description,creator,contact_name,contact_email,license
+spsr-data-dictionary,SPSR Data Dictionary Reference,Reference metadata for Stock-Production-Spawner-Recruit data template columns. Defines column structure for SMU/CU/PFMA/Population time series and metadata tables.,DFO Pacific Science Branch,Data Steward,contact@dfo-mpo.gc.ca,CC-BY-4.0

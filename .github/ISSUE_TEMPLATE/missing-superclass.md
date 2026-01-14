@@ -1,0 +1,1 @@
+/Users/brettjohnson/code/dfo-salmon-ontology/.github/ISSUE_TEMPLATE/missing-superclass.md

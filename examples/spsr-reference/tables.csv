@@ -1,0 +1,13 @@
+dataset_id,table_id,file_name,table_label,description,observation_unit
+spsr-data-dictionary,smu_metadata,smu_metadata.csv,SMU Metadata,Metadata describing Stock Management Unit time series indices,Stock Management Unit time series
+spsr-data-dictionary,smu_timeseries,smu_timeseries.csv,SMU Time Series,Annual measurements for Stock Management Units including catch spawners recruits and mortality rates,Stock Management Unit annual measurement
+spsr-data-dictionary,cu_metadata,cu_metadata.csv,CU Metadata,Metadata describing Conservation Unit time series indices,Conservation Unit time series
+spsr-data-dictionary,cu_year,cu_year.csv,CU Annual Data,Annual measurements for Conservation Units,Conservation Unit annual measurement
+spsr-data-dictionary,pfma_metadata,pfma_metadata.csv,PFMA Metadata,Metadata describing Pacific Fishery Management Area time series,PFMA time series
+spsr-data-dictionary,pfma_timeseries,pfma_timeseries.csv,PFMA Time Series,Annual catch and run data by PFMA,PFMA annual measurement
+spsr-data-dictionary,pop_metadata,pop_metadata.csv,Population Metadata,Metadata describing population-level time series,Population time series
+spsr-data-dictionary,pop_year,pop_year.csv,Population Annual Data,Annual spawner data at population level,Population annual measurement
+spsr-data-dictionary,indicator_metadata,indicator_metadata.csv,Indicator CWT Metadata,Metadata for coded-wire tag indicator stocks,Indicator stock time series
+spsr-data-dictionary,indicator_year,indicator_year.csv,Indicator CWT Annual Data,Annual data for CWT indicator stocks,Indicator stock annual measurement
+spsr-data-dictionary,smu,smu.csv,SMU Reference Points,Stock Management Unit reference points and benchmarks,Stock Management Unit
+spsr-data-dictionary,cu,cu.csv,CU Reference Points,Conservation Unit reference points and WSP benchmarks,Conservation Unit

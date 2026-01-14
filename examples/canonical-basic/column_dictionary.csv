@@ -1,0 +1,6 @@
+dataset_id,table_id,column_name,column_label,column_description,column_role,value_type,unit_label,unit_iri,term_iri,term_type,required,property_iri,entity_iri,constraint_iri,method_iri
+demo-salmon,observations,sample_id,sample_id,Unique sample identifier,identifier,string,,,,"",FALSE,,,,
+demo-salmon,observations,date,date,Sampling date,temporal,date,,,,"",FALSE,,,,
+demo-salmon,observations,site,site,Site name,categorical,string,,,,"",FALSE,,,,
+demo-salmon,observations,species,species,Species code,categorical,string,,,,"",FALSE,,,,
+demo-salmon,observations,count,count,Count of salmon,measurement,integer,,,,"",TRUE,,,,

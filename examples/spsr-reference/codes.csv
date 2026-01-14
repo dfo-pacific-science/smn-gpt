@@ -1,0 +1,28 @@
+dataset_id,table_id,column_name,code_value,code_label,code_description,term_iri,term_type
+spsr-data-dictionary,smu_metadata,YEAR_TYPE,brood year,Brood Year,The year that a cohort of salmon spawns,https://w3id.org/gcdfo/salmon#BroodYear,owl_class
+spsr-data-dictionary,smu_metadata,YEAR_TYPE,catch year,Catch Year,The calendar year in which returning salmon are caught,https://w3id.org/gcdfo/salmon#CatchYear,owl_class
+spsr-data-dictionary,smu_metadata,YEAR_TYPE,return year,Return Year,The calendar year in which adult salmon return to their natal freshwater spawning habitat,,skos_concept
+spsr-data-dictionary,smu_metadata,INDEX_QUALITY,1,High Quality,Information subjected to rigorous science QA and peer review,,
+spsr-data-dictionary,smu_metadata,INDEX_QUALITY,2,Medium or Mixed Quality,Information with some shortcomings but still useful,,
+spsr-data-dictionary,smu_metadata,INDEX_QUALITY,3,Low Quality,Information that substantially failed quality principles,,
+spsr-data-dictionary,smu_metadata,INDEX_QUALITY,4,Quality Level 4,Additional quality level,,
+spsr-data-dictionary,smu_metadata,INDEX_QUALITY,U,Unranked,Information not subjected to formal QA or peer review,,
+spsr-data-dictionary,smu_metadata,INFORMATION_QUALITY,1,Quality Level 1,Highest data quality per Ogden 2015 framework,,
+spsr-data-dictionary,smu_metadata,INFORMATION_QUALITY,2,Quality Level 2,Data quality level 2 per Ogden 2015,,
+spsr-data-dictionary,smu_metadata,INFORMATION_QUALITY,3,Quality Level 3,Data quality level 3 per Ogden 2015,,
+spsr-data-dictionary,smu_metadata,INFORMATION_QUALITY,4,Quality Level 4,Data quality level 4 per Ogden 2015,,
+spsr-data-dictionary,smu_metadata,INFORMATION_QUALITY,5,Quality Level 5,Lowest data quality per Ogden 2015 framework,,
+spsr-data-dictionary,smu_metadata,AGE_TYPE,Gilbert-Rich,Gilbert-Rich Age Method,Age determination method following Gilbert and Rich conventions,,
+spsr-data-dictionary,smu_metadata,AGE_TYPE,European,European Age Method,Age determination method following European conventions,,
+spsr-data-dictionary,cu,CU_TYPE,Current,Current CU,Conservation Unit currently active,,
+spsr-data-dictionary,cu,CU_TYPE,Extirpated,Extirpated CU,Conservation Unit that has been extirpated,,
+spsr-data-dictionary,cu,CU_TYPE,Bin,Bin CU,Conservation Unit designated as bin,,
+spsr-data-dictionary,cu,CU_TYPE,Deprecated,Deprecated CU,Conservation Unit deprecated,,
+spsr-data-dictionary,cu,CU_TYPE,Deprecated(Bin),Deprecated Bin CU,Conservation Unit deprecated as bin,,
+spsr-data-dictionary,cu,CU_TYPE,VREQ[Bin],VREQ Bin,Verification requested bin,,
+spsr-data-dictionary,cu,CU_TYPE,VREQ[Current],VREQ Current,Verification requested current,,
+spsr-data-dictionary,cu,CU_TYPE,VREQ[Extirpated],VREQ Extirpated,Verification requested extirpated,,
+spsr-data-dictionary,cu,DFO_AREA,South Coast,South Coast,DFO South Coast management area,,
+spsr-data-dictionary,cu,DFO_AREA,North Coast,North Coast,DFO North Coast management area,,
+spsr-data-dictionary,cu,DFO_AREA,Fraser and Interior,Fraser and Interior,DFO Fraser and Interior management area,,
+spsr-data-dictionary,cu,DFO_AREA,Yukon Transboundary,Yukon Transboundary,DFO Yukon Transboundary management area,,

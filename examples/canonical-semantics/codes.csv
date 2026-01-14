@@ -1,0 +1,3 @@
+dataset_id,table_id,column_name,code_value,code_label,term_iri
+demo-salmon-semantic,observations,species,COHO,Coho Salmon,http://purl.obolibrary.org/obo/NCBITaxon_8019
+demo-salmon-semantic,observations,species,CHIN,Chinook Salmon,http://purl.obolibrary.org/obo/NCBITaxon_74940
