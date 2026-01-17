@@ -21,21 +21,22 @@
 - Uses dfo-salmon-ontology for semantics (README.md) and the smn-data-pkg spec for package structure.
 - Vignettes reference `smn-gpt/SYSTEM-PROMPT.md` (vignettes/gpt-collaboration.Rmd) so GPT guidance stays aligned.
 - AGENTS.md: any function changes must be reflected in the Python mirror at `../salmonpy`.
-- **Manual prompts when metasalmon changes:** port equivalent updates to salmonpy (keep version parity noted in salmonpy README), rerun parity tests (`../salmonpy/tests/test_roundtrip.py` or `data-stewardship-unit/salmonpy/scripts/run-parity.sh`), and adjust smn-gpt skill text (`skills/metasalmon-usage/*`) plus any salmonpy helper snippets embedded in smn-gpt.
+- **Manual prompts when metasalmon changes:** port equivalent updates to salmonpy (keep version parity noted in salmonpy README), rerun parity tests (`../salmonpy/tests/test_roundtrip.py` or `data-stewardship-unit/salmonpy/scripts/run-parity.sh`), and adjust smn-gpt skill text (`skills/metasalmon-usage/*`) plus any salmonpy helper snippets embedded in smn-gpt. If role preferences change, mirror `inst/extdata/ontology-preferences.csv` into `salmonpy/data/ontology-preferences.csv`.
+- **End-of-execplan dependency refresh:** metasalmon vignettes + articles, quickstart guide sections, and any docs that reference `find_terms()` / `sources_for_role()` or role preference behavior.
 
 ### salmonpy
 
-- Python mirror of metasalmon; README notes alignment with metasalmon 0.0.3. Round-trip tests import metasalmon via R (`tests/test_roundtrip.py`, `scripts/run-parity.sh`).
+- Python mirror of metasalmon; README notes alignment with metasalmon 0.0.5. Round-trip tests import metasalmon via R (`tests/test_roundtrip.py`, `scripts/run-parity.sh`).
 - smn-gpt skills and entrypoints call salmonpy CLIs (`scripts/validate_sdp.py`, `scripts/draft_new_term.py`) and modules (`dictionary.py`, `semantics.py`, `term_search.py`, `package_io.py`).
-- Uses dfo-salmon-ontology issue template in `scripts/draft_new_term.py`; term search honors BIOPORTAL_APIKEY and optional `SALMONPY_CACHE`.
-- **Manual prompts when salmonpy API/CLIs change:** update smn-gpt entrypoints (`docs/entrypoints.md`) and skills that show salmonpy code paths, re-run parity tests against metasalmon, and bump the compatibility note in salmonpy README/CHANGELOG to match metasalmon.
+- Uses dfo-salmon-ontology issue template in `scripts/draft_new_term.py`; term search honors BIOPORTAL_APIKEY and optional `SALMONPY_CACHE`. Phase 2 role preferences live in `data/ontology-preferences.csv` and drive `sources_for_role()` plus alignment-only handling.
+- **Manual prompts when salmonpy API/CLIs change:** update smn-gpt entrypoints (`docs/entrypoints.md`) and skills that show salmonpy code paths, re-run parity tests against metasalmon, and bump the compatibility note in salmonpy README/CHANGELOG to match metasalmon. If role preferences change, keep the salmonpy preferences file aligned with metasalmon.
 
 ### smn-gpt
 
 - System prompt and skills point to metasalmon workflows (`skills/metasalmon-usage`) and salmonpy helpers (multiple skills + docs/entrypoints.md). RESOURCE preload expects `SPECIFICATION.md`, `schema/glossary.md`, `dfo-salmon.ttl`, canonical examples.
 - Contains local copies of the spec/TTL (`SPECIFICATION.md`, `schema/*`, `dfo-salmon.ttl`) that should track smn-data-pkg and dfo-salmon-ontology.
 - New-term flows link to dfo-salmon-ontology issue templates (skills/ontology-term-creation, ontology-term-mapping).
-- **Manual prompts when upstreams change:** if metasalmon or salmonpy behavior/paths change, refresh the skills and system prompt examples; when smn-data-pkg spec or dfo-salmon-ontology TTL updates, sync the copies here to avoid stale guidance; keep I-ADOPT references consistent with metasalmon terminology files.
+- **Manual prompts when upstreams change:** if metasalmon or salmonpy behavior/paths change, refresh the skills and system prompt examples (`SYSTEM-PROMPT.md`); when smn-data-pkg spec or dfo-salmon-ontology TTL updates, sync the copies here to avoid stale guidance; keep I-ADOPT references consistent with metasalmon terminology files.
 
 ### data-stewardship-unit
 
