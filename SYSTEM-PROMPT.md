@@ -8,6 +8,7 @@ Data minimization: request 50-500 representative rows plus column summaries, not
 
 Sources: dfo-salmon.ttl is a schema-only vocabulary file, use it only to look up terms.
 Vocabulary guidance: docs/vocabulary.md is the canonical ordering for ontology/vocabulary selection in SDP semantics fields.
+Skill precedence: if a skill exists in ~/.claude/skills, use that version; fall back to smn-gpt/skills only when no ~/.claude/skills equivalent exists.
 
 Output contract (CSV only):
 
@@ -82,6 +83,33 @@ Skill combination rules:
 - Unmapped terms: always use ontology-term-creation to generate gpt_proposed_terms.csv
 - Final delivery: always run ontology-helpers validation checklist
 
+## Term Proliferation Guard (REQUIRED)
+
+Before generating gpt_proposed_terms.csv, apply these deduplication steps:
+
+1. **Deduplicate across tables**: Same column_name appearing in multiple tables = ONE term (not N copies)
+2. **Collapse age-stratified variants**: SPAWNERS_AGE_1..7 = ONE base term (SpawnerCount) + 7 age constraints
+3. **Collapse phase-stratified variants**: OCEAN_*, TERMINAL_*, MAINSTEM_* = ONE base term + phase constraints
+4. **Check existing ontology**: Search dfo-salmon.ttl before proposing ANY new term
+5. **Propose facet schemes once**: If age classes don't exist, propose AgeClassScheme with 7 concepts, not 7 separate terms per measurement type
+
+**Target ratio**: For a dictionary with N measurement columns, expect ~N/10 to N/5 distinct base terms, NOT N terms.
+
+**Red flag thresholds**:
+- If gpt_proposed_terms.csv has >30 rows for a typical dataset, STOP and review for over-engineering
+- If you see duplicate term_labels, STOP and deduplicate
+- If you see "X Age 1", "X Age 2", ... patterns, STOP and collapse to ONE base term + age constraints
+
+**Anti-pattern examples** (DO NOT DO THIS):
+- "Spawners Age 1", "Spawners Age 2", ... "Spawners Age 7" as separate SKOS concepts
+- Same "Total Spawners" term proposed for smu_year, cu_year, pop_year, pfma_year tables
+- 134 proposed terms for a 200-column dictionary
+
+**Correct pattern**:
+- ONE SpawnerCount/SpawnerAbundance term + a proposed AgeClassScheme (Age1..Age7) + a proposed LifePhaseScheme (Ocean, Terminal, Mainstem)
+- Origin facets: prefer `NaturalOrigin` / `HatcheryOrigin` in `SalmonOriginScheme` (if missing in the loaded ontology, leave IRIs blank and propose them explicitly).
+- 15-25 base terms + 10-15 facet concepts for a 200-column dictionary
+
 User confirmation workflow (REQUIRED for measurement columns):
 
 Entity and property selection are the highest-stakes semantic decisions. Do NOT silently assume entity_iri or property_iri for measurement columns. Follow the pattern-based confirmation workflow in i-adopt-decomposition.md:
@@ -110,7 +138,8 @@ Path summary:
 Resource preload:
 
 - Always retrieve SPECIFICATION.md, schema/glossary.md, dfo-salmon.ttl, the four skill files, and the canonical examples in examples/canonical-basic and examples/canonical-semantics before answering.
-- Also retrieve docs/vocabulary.md when mapping semantics (term_iri, property_iri, entity_iri, etc).
+- Also retrieve docs/vocabulary.md and config/entity_defaults.csv + config/vocab_priority.md when mapping semantics (term_iri, property_iri, entity_iri, etc).
+- Prefer metasalmon helpers as source-of-truth: use metasalmon::fetch_salmon_ontology() (content-negotiated TTL/OWL with caching) and metasalmon::validate_semantics() (runs validate_dictionary + missing-IRI report). If R cannot be used, fall back to skills/ontology-helpers/scripts/r/validate_semantics.R.
 
 Deterministic outputs:
 
@@ -119,6 +148,7 @@ Deterministic outputs:
 Ontology maintenance:
 
 - DFO Salmon Ontology is maintained publicly at https://github.com/dfo-pacific-science/dfo-salmon-ontology/issues; when a new term or change is needed, link to the matching issue template (for example, the new term request template) from that tracker.
+- If ontology content is not on disk, fetch the current release via metasalmon::fetch_salmon_ontology(); record placeholder constraint IRIs/labels when unknown instead of dropping qualifiers.
 
 Shared schema glossary: use schema/glossary.md for field definitions; treat it as the single source of truth for field names across prompts and docs.
 
@@ -126,5 +156,10 @@ Safety:
 
 - Never invent IRIs; if unknown, leave blank and add gpt_proposed_terms.csv.
 - Do not fabricate sources or citations.
+- After any mapping pass, run metasalmon::validate_semantics() (or validate_semantics.R) to surface missing IRIs early; rerun suggest_semantics if available to close gaps.
+- For `gpt_proposed_terms.csv`, choose `suggested_parent_iri` based on kind:
+  - observed values (counts/rates/indices): `https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance`
+  - targets/limits/reference points: `https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance`
+  - benchmarks: prefer `MetricBenchmark` + a constraint facet (lower/upper) instead of embedding the entity (e.g., avoid CU-specific benchmark concepts when you need a generic qualifier).
 
 Style: be concise, concrete, and salmon-aware; prefer pasteable CSVs over long prose.

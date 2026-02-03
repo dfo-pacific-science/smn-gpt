@@ -288,6 +288,41 @@ Always use QUDT for unit_iri:
   - entity_iri: https://w3id.org/gcdfo/salmon#ConservationUnit
   - constraint_iri: <metric_iri_for_this_reference_point>
 
+## Quick R patterning (dataset-agnostic)
+```r
+library(dplyr); library(readr); library(stringr)
+entity_defaults <- read.csv("config/entity_defaults.csv")
+cols <- read_csv("column_dictionary.csv", show_col_types = FALSE)
+detect_phase <- function(u) paste(na.omit(c(
+  if (str_starts(u, "OCEAN")) "<ocean_phase>",
+  if (str_starts(u, "MAINSTEM")) "<mainstem_phase>",
+  if (str_starts(u, "TERMINAL")) "<terminal_phase>"
+)), collapse=";")
+patterns <- cols %>%
+  mutate(u = toupper(column_name),
+         pattern = case_when(
+           str_detect(u, "AGE_\\d+") & str_detect(u, "CATCH") ~ "age_location_catch",
+           str_detect(u, "^CATCH_AGE_\\d+") ~ "age_catch",
+           str_detect(u, "^SPAWNERS_AGE_\\d+") ~ "age_spawner",
+           str_detect(u, "^RUN_AGE_\\d+") ~ "age_run",
+           str_detect(u, "EXPLOITATION_RATE|^ER$") ~ "exploitation_rate",
+           str_detect(u, "MORTALITY|SURVIVAL") ~ "mortality_survival",
+           TRUE ~ "other"
+         ),
+         constraint_iri = str_c(
+           ifelse(str_detect(u, "AGE_(\\d+)"),
+                  str_replace(u, ".*AGE_(\\d+).*", "<age_\\1_constraint>"), NA_character_),
+           detect_phase(u),
+           ifelse(str_detect(u, "CATCH"), "<catch_context>", NA_character_),
+           ifelse(str_detect(u, "RUN"), "<run_context>", NA_character_),
+           sep=";"),
+         constraint_iri = str_replace_all(constraint_iri, "(^;|;$|;;)", "")) %>%
+  group_by(pattern) %>%
+  summarise(count=n(), examples=str_c(head(column_name,3), collapse=", "))
+print(patterns)
+```
+Use this to draft pattern tables quickly; keep constraint placeholders even when IRIs are unknown.
+
 ## Validation scripts
 - Run ontology helper scripts when drafting semantics (see skills/ontology-helpers/scripts).
 - Cross-check: every measurement has unit_iri + property_iri + entity_iri; constraints match qualifiers; new terms flagged; codes.csv used for categorical columns.

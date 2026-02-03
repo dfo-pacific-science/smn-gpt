@@ -107,6 +107,24 @@ When the user has R available, suggest these metasalmon functions:
 - `suggest_semantics()`: provides role-aware I-ADOPT suggestions using the bundled terminology catalogue
 These provide deterministic, reproducible suggestions that complement GPT-assisted mapping.
 
+## Quick R workflow (minimal toolchain)
+1) Fetch ontology (cached): `path <- system('Rscript skills/ontology-helpers/scripts/r/fetch_dfo_salmon_ttl.R', intern=TRUE)`
+2) Load configs: `entity_defaults <- read.csv('config/entity_defaults.csv'); vocab_priority <- readLines('config/vocab_priority.md')`
+3) Suggest + validate: `source('skills/ontology-helpers/scripts/r/validate_semantics.R')` (runs metasalmon::validate_dictionary; emits gpt_proposed_terms.csv for missing term_iri)
+4) Keep skills thin: add reusable helpers to metasalmon; call them here rather than re-implementing.
+
+## GitHub issue template (clean Markdown)
+```
+## Summary
+<goal>
+
+## Tasks
+- [ ] <task>
+- [ ] <task>
+
+Base branch: `main`
+```
+
 ## salmonpy helper (Python)
 Use salmonpy (Python mirror of metasalmon) for deterministic term suggestions:
 ```python

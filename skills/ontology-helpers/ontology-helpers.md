@@ -11,8 +11,12 @@ Use this skill when:
 - You want to check categorical columns for codes coverage.
 
 ## Scripts (run from repo root)
-- Detect missing IRIs and draft gpt_proposed_terms skeleton:
+- Detect missing IRIs and draft gpt_proposed_terms skeleton (Python):
   `python smn-gpt/skills/ontology-helpers/scripts/detect_missing_iris.py --dictionary path/to/column_dictionary.csv --output gpt_proposed_terms.csv`
+- R minimal validator (no-python path):
+  `Rscript skills/ontology-helpers/scripts/r/validate_semantics.R column_dictionary.csv work/gpt_proposed_terms.csv`
+- Fetch ontology (cached):
+  `Rscript skills/ontology-helpers/scripts/r/fetch_dfo_salmon_ttl.R`
 - Draft new-term issue Markdown/URL:
   `python smn-gpt/skills/ontology-helpers/scripts/draft_issue_url.py --label "escapement count" --definition "Count..." --term-type skos_concept --parent-iri <iri>`
 - Check categorical codes coverage:
@@ -65,6 +69,7 @@ Run through this checklist after generating column_dictionary.csv and before del
 - [ ] Population-level tables use `entity_iri = https://w3id.org/gcdfo/salmon#Stock` (until a population class exists in `dfo-salmon.ttl`)
 - [ ] Individual fish observations use `entity_iri = http://rs.tdwg.org/dwc/terms/Organism`
 - [ ] User confirmed entity selections via pattern-based confirmation workflow (see i-adopt-decomposition.md)
+- [ ] Reusable helper logic should live in metasalmon; keep skill scripts as thin wrappers that call metasalmon functions when available.
 
 ### Proposed terms documentation
 - [ ] gpt_proposed_terms.csv includes all terms where `term_iri` was left blank

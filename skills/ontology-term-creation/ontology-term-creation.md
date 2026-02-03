@@ -7,10 +7,37 @@ description: Draft new term requests and gpt_proposed_terms.csv rows when no exi
 
 Use this skill when no existing term fits and a new term is needed for the ontology, and an ontology is a formal model of concepts and relationships.
 
+## When NOT to Propose a New Term (Check First!)
+
+❌ **Don't propose** when:
+- The measurement is an existing concept + age/location/phase facet → use constraint_iri
+- The same concept appears in multiple tables → reuse ONE term, don't duplicate
+- The variation can be expressed via constraint_iri (age class, life phase, origin, benchmark type)
+- You're creating "X Age 1", "X Age 2", ... variants → propose ONE base term + age scheme
+
+✅ **Do propose** when:
+- A genuinely new measurement type with no existing base concept
+- A new facet vocabulary is needed (e.g., AgeClassScheme if missing)
+- An existing term needs a more specific child concept
+
+## Batch Deduplication (REQUIRED Before Proposing)
+
+When processing a multi-table dictionary:
+
+1. **Extract unique patterns**: Group by (base_concept, measurement_type) not by table
+2. **Deduplicate across tables**: Same column_name = same term, regardless of which table it's in
+3. **Collapse age variants**: SPAWNERS_AGE_1..7 = ONE SpawnerAbundance/SpawnerCount base term + 7 age constraints (prefer an existing ontology term like `SpawnerAbundance` if present)
+4. **Collapse phase variants**: OCEAN_*, TERMINAL_*, MAINSTEM_* = ONE base term + 3 phase facets
+5. **Propose facet schemes once**: If age classes needed, propose AgeClassScheme with all 7 concepts
+
+**Target**: For a 200-column dictionary → 15-25 base terms + 10-15 facet concepts
+**Red flag**: If >30 rows in gpt_proposed_terms.csv, STOP and review for over-engineering
+
 ## Guardrails
 - Never invent IRIs (an IRI is a web-style identifier for a concept).
 - Avoid punning: punning means reusing the same IRI as both an OWL class and a SKOS concept.
 - Vocabulary/ontology guidance for SDP semantics lives in `docs/vocabulary.md`.
+- **No term proliferation**: Use compositional I-ADOPT (base term + constraints) not one term per column variant.
 
 ## gpt_proposed_terms.csv schema
 Required fields:
@@ -93,7 +120,7 @@ Please provide as much information as you can:
 
 * **Definition source (required):** https://www.dfo-mpo.gc.ca/science/
 
-* **Parent term(s):** https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance
+* **Parent term(s):** https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance
 
 * **Children terms** (if applicable): None
 
@@ -109,6 +136,17 @@ I-ADOPT decomposition for this variable:
 - entity_iri: https://w3id.org/gcdfo/salmon#Stock
 - constraint_iri: [marine_phase_constraint_IRI]
 ```
+
+## Parent selection rules (REQUIRED)
+
+When filling `suggested_parent_iri`, decide **what kind of thing the term is**:
+
+- **Observed values** (counts, rates, indices measured/estimated from data): use `https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance` (or a more specific existing measurement class like `Catch` / `SpawnerAbundance` if it exists).
+- **Targets / limits / reference points** (policy/model-defined values like SMSY, Sgen): use `https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance` (or `ReferencePoint` / the specific reference point class if it exists).
+- **Benchmark values**: prefer `MetricBenchmark` (benchmark value as such) + a **constraint** for lower/upper rather than minting separate “LowerBenchmarkValue” terms.
+- **Provenance fields** (citations, sources): do **not** mint new domain terms; use `dcterms:source` / PROV patterns.
+
+Rule: if the proposed parent IRI does not exist in the ontology file you loaded, leave it blank and add a row proposing the missing scheme/term explicitly.
 
 ### Batch submission guidance
 
