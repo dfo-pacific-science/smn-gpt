@@ -52,6 +52,7 @@ Optional fields:
 
 Term types:
 - skos_concept: a controlled vocabulary concept in SKOS, and SKOS is a standard for controlled vocabularies.
+- skos_concept_scheme: a SKOS concept scheme (a named controlled vocabulary list) used to group concepts.
 - owl_class: a class in OWL, and OWL is a formal language for machine-readable models of concepts and relationships.
 - owl_object_property: a relationship in OWL between two things.
 
