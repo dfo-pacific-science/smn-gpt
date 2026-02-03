@@ -1,4 +1,9 @@
-docs/
+docs/*
+!docs/vocabulary.md
+!docs/vocabulary_refined.md
+!docs/entrypoints.md
+!docs/plans/
+!docs/plans/*.md
 schema/tables.csv
 SPECIFICATION.md
 README.md
@@ -10,3 +15,7 @@ schema/codes.csv
 schema/column_dictionary.csv
 schema/dataset.csv
 schema/gpt_proposed_terms.csv
+AGENTS.md
+CLAUDE.md
+.cursorignore
+.cursor/
