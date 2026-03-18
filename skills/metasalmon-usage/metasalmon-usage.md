@@ -5,24 +5,28 @@ description: Guide users through the metasalmon R package workflows for SDP.
 
 # metasalmon usage
 
+> Scope note: this is a **working-repo / local-agent skill**. It assumes a local R environment with `metasalmon` when you actually run the code, and some term-search workflows may use network/API access. For the offline Custom GPT version, use `custom-gpt-pack/20-metasalmon-workflow.md` plus `custom-gpt-pack/04-SKILLS-GUIDE.md`.
+
 Use this skill when the user asks how to read, validate, or build SDP metadata with metasalmon, where an SDP (Salmon Data Package) is a small folder of CSV metadata files plus data files, and metadata means data about the data, like names and descriptions.
 
 ## References
-- SPECIFICATION.md is normative (normative means it defines what is valid).
-- schema/glossary.md is the shared field glossary (a glossary is a list of field definitions used to keep wording consistent).
+- `custom-gpt-pack/02-SPECIFICATION.md` is normative (normative means it defines what is valid).
+- `schema/glossary.md` is the shared field glossary (a glossary is a list of field definitions used to keep wording consistent).
 - A vignette is a tutorial document bundled with an R package; R is a statistical programming language.
 
 ## Suggested reading order
-1) metasalmon/vignettes/how-it-fits-together.Rmd (How it Fits Together)
-2) metasalmon/vignettes/metasalmon.Rmd (Biologist Quickstart)
-3) metasalmon/vignettes/functions-workflow.Rmd (R Workflow and Validation)
-4) metasalmon/vignettes/semantic-enrichment.Rmd (Semantic Enrichment)
-5) metasalmon/vignettes/gpt-collaboration.Rmd (AI Assistance)
+In the `metasalmon` repo/package docs, read these articles in this order:
+1) `metasalmon.Rmd` (Biologist Quickstart)
+2) `data-dictionary-publication.Rmd` (publication workflow)
+3) `reusing-standards-salmon-data-terms.Rmd` (semantic enrichment / vocabulary reuse)
+4) `gpt-collaboration.Rmd` (AI assistance)
+5) `faq.Rmd` (troubleshooting / common workflow questions)
 
 ## Workflow guidance
-- Keep metadata CSVs aligned to schema/glossary.md.
+- Prefer `create_sdp()` as the main one-shot package-first path.
+- Keep metadata CSVs aligned to `schema/glossary.md`.
 - Validate required fields before adding semantics.
-- Use codes.csv only when categorical columns exist.
+- Use `codes.csv` only when categorical columns exist.
 
 ## Response template (ordered outputs)
 When producing SDP metadata, keep outputs deterministic (deterministic means the same input yields the same output):
@@ -35,7 +39,7 @@ Place any notes or gpt_proposed_terms.csv after these blocks.
 ## Key functions for ontology lookup
 - `find_terms()`: search OLS, NVS, BioPortal for IRIs by keyword
 - `suggest_semantics()`: get role-aware I-ADOPT suggestions for measurement columns
-See semantic-enrichment.Rmd for usage examples.
+See the `metasalmon` article `reusing-standards-salmon-data-terms.Rmd` for usage examples.
 
 ## Caching and API keys
 - Optional cache: set `METASALMON_CACHE=1` (R) or `SALMONPY_CACHE=1` (Python) to cache term search results by query+role locally.

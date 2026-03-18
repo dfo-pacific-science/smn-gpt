@@ -1,0 +1,48 @@
+iri,label,class,description
+http://rs.tdwg.org/dwc/terms/basisOfRecord,Basis of Record,Record,The specific nature of the data record
+http://rs.tdwg.org/dwc/terms/datasetID,Dataset ID,Record,An identifier for the dataset
+http://rs.tdwg.org/dwc/terms/datasetName,Dataset Name,Record,The name identifying the dataset
+http://rs.tdwg.org/dwc/terms/occurrenceID,Occurrence ID,Occurrence,Identifier for the occurrence record
+http://rs.tdwg.org/dwc/terms/individualCount,Individual Count,Occurrence,The number of individuals present
+http://rs.tdwg.org/dwc/terms/sex,Sex,Occurrence,The sex of the biological individual(s)
+http://rs.tdwg.org/dwc/terms/lifeStage,Life Stage,Occurrence,The age class or life stage of the individual(s)
+http://rs.tdwg.org/dwc/terms/reproductiveCondition,Reproductive Condition,Occurrence,The reproductive condition of the individual(s)
+http://rs.tdwg.org/dwc/terms/behavior,Behavior,Occurrence,A description of the behavior shown by the subject
+http://rs.tdwg.org/dwc/terms/occurrenceStatus,Occurrence Status,Occurrence,A statement about the presence or absence of a taxon
+http://rs.tdwg.org/dwc/terms/occurrenceRemarks,Occurrence Remarks,Occurrence,Comments about the occurrence
+http://rs.tdwg.org/dwc/terms/Organism,Organism,Organism,A particular organism or defined group of organisms
+http://rs.tdwg.org/dwc/terms/organismID,Organism ID,Organism,Identifier for the organism instance
+http://rs.tdwg.org/dwc/terms/organismName,Organism Name,Organism,A textual name or label for the organism
+http://rs.tdwg.org/dwc/terms/eventID,Event ID,Event,Identifier for the sampling event
+http://rs.tdwg.org/dwc/terms/eventDate,Event Date,Event,The date or date-interval of the event
+http://rs.tdwg.org/dwc/terms/year,Year,Event,The four-digit year of the event
+http://rs.tdwg.org/dwc/terms/month,Month,Event,The integer month of the event
+http://rs.tdwg.org/dwc/terms/day,Day,Event,The integer day of the month of the event
+http://rs.tdwg.org/dwc/terms/samplingProtocol,Sampling Protocol,Event,The method or protocol used for sampling
+http://rs.tdwg.org/dwc/terms/samplingEffort,Sampling Effort,Event,The amount of effort expended during sampling
+http://rs.tdwg.org/dwc/terms/sampleSizeValue,Sample Size Value,Event,A numeric value for a measurement of the sample size
+http://rs.tdwg.org/dwc/terms/sampleSizeUnit,Sample Size Unit,Event,The unit of measurement for the sample size
+http://rs.tdwg.org/dwc/terms/eventRemarks,Event Remarks,Event,Comments about the event
+http://rs.tdwg.org/dwc/terms/locationID,Location ID,Location,Identifier for the location
+http://rs.tdwg.org/dwc/terms/locality,Locality,Location,The specific description of the place
+http://rs.tdwg.org/dwc/terms/waterBody,Water Body,Location,The name of the water body
+http://rs.tdwg.org/dwc/terms/decimalLatitude,Decimal Latitude,Location,The geographic latitude in decimal degrees
+http://rs.tdwg.org/dwc/terms/decimalLongitude,Decimal Longitude,Location,The geographic longitude in decimal degrees
+http://rs.tdwg.org/dwc/terms/coordinateUncertaintyInMeters,Coordinate Uncertainty,Location,The horizontal distance from the coordinates describing the smallest circle containing the whole of the Location
+http://rs.tdwg.org/dwc/terms/geodeticDatum,Geodetic Datum,Location,"The ellipsoid, geodetic datum, or spatial reference system (SRS)"
+http://rs.tdwg.org/dwc/terms/taxonID,Taxon ID,Taxon,Identifier for the taxon
+http://rs.tdwg.org/dwc/terms/scientificName,Scientific Name,Taxon,The full scientific name
+http://rs.tdwg.org/dwc/terms/vernacularName,Vernacular Name,Taxon,A common or vernacular name
+http://rs.tdwg.org/dwc/terms/kingdom,Kingdom,Taxon,The full scientific name of the kingdom
+http://rs.tdwg.org/dwc/terms/phylum,Phylum,Taxon,The full scientific name of the phylum
+http://rs.tdwg.org/dwc/terms/class,Class,Taxon,The full scientific name of the class
+http://rs.tdwg.org/dwc/terms/order,Order,Taxon,The full scientific name of the order
+http://rs.tdwg.org/dwc/terms/family,Family,Taxon,The full scientific name of the family
+http://rs.tdwg.org/dwc/terms/genus,Genus,Taxon,The full scientific name of the genus
+http://rs.tdwg.org/dwc/terms/specificEpithet,Specific Epithet,Taxon,The name of the species epithet
+http://rs.tdwg.org/dwc/terms/measurementID,Measurement ID,MeasurementOrFact,Identifier for the measurement
+http://rs.tdwg.org/dwc/terms/measurementType,Measurement Type,MeasurementOrFact,The nature of the measurement
+http://rs.tdwg.org/dwc/terms/measurementValue,Measurement Value,MeasurementOrFact,The value of the measurement
+http://rs.tdwg.org/dwc/terms/measurementUnit,Measurement Unit,MeasurementOrFact,The units for the measurement value
+http://rs.tdwg.org/dwc/terms/measurementMethod,Measurement Method,MeasurementOrFact,The method used to make the measurement
+http://rs.tdwg.org/dwc/terms/measurementRemarks,Measurement Remarks,MeasurementOrFact,Comments about the measurement

@@ -1,0 +1,6 @@
+dataset_id,table_id,column_name,column_label,column_description,column_role,value_type,unit_label,unit_iri,term_iri,term_type,required,property_iri,entity_iri,constraint_iri,method_iri
+demo-salmon-semantic,observations,sample_id,sample_id,Unique sample identifier,identifier,string,,,,"",FALSE,,,,
+demo-salmon-semantic,observations,date,date,Sampling date,temporal,date,,,,"",FALSE,,,,
+demo-salmon-semantic,observations,site,site,Site name,categorical,string,,,,"",FALSE,,,,
+demo-salmon-semantic,observations,species,species,Species code,categorical,string,,,"http://purl.obolibrary.org/obo/NCBITaxon_8022",skos_concept,FALSE,,,,
+demo-salmon-semantic,observations,count,count,Count of salmon,measurement,integer,individuals,http://purl.obolibrary.org/obo/UO_0000189,"http://purl.obolibrary.org/obo/NCIT_C25473",skos_concept,TRUE,"http://purl.obolibrary.org/obo/PATO_0000070","http://purl.obolibrary.org/obo/NCBITaxon_8022",,

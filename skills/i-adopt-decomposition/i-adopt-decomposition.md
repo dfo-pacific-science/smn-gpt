@@ -5,6 +5,8 @@ description: Guidance and scripts for decomposing measurement columns using I-AD
 
 # I-ADOPT Decomposition
 
+> Scope note: this is a **working-repo / local-agent skill**. It is more detailed than the offline upload-pack guidance and may be used alongside local repo docs and tooling. For the Custom GPT upload-pack version, use `custom-gpt-pack/06-I-ADOPT-PATTERNS.md`.
+
 Use this skill when decomposing measurement columns into I-ADOPT parts (property, entity, matrix/context, constraints) plus an optional procedure/method link (`method_iri`, aligned to SOSA `sosa:Procedure`, where SOSA is the W3C/OGC observations vocabulary).
 
 ## Process (detailed, self contained)
@@ -213,7 +215,7 @@ When entity is ambiguous, use table naming conventions as the default:
 
 ## Property IRI conventions (vocabulary preferences)
 
-See `docs/vocabulary.md` for the canonical ordering. For quick work, these defaults cover most SDP measurement columns:
+See `custom-gpt-pack/05-VOCABULARY-GUIDE.md` for the current canonical ordering. For quick work, these defaults cover most SDP measurement columns:
 
 ### Counts and abundance
 - **Default**: QUDT Count (`http://qudt.org/vocab/quantitykind/Count`)
@@ -240,7 +242,7 @@ Always use QUDT for unit_iri:
 - Kilograms: `http://qudt.org/vocab/unit/KiloGM`
 
 ### Decision rule for property_iri
-1. Follow `docs/vocabulary.md` (canonical ordering and role-specific guidance).
+1. Follow `custom-gpt-pack/05-VOCABULARY-GUIDE.md` (canonical ordering and role-specific guidance).
 2. Prefer a `gcdfo:` term when a salmon-specific observable/property exists.
 3. Otherwise use QUDT quantity kinds (`http://qudt.org/vocab/quantitykind/`).
 4. Use PATO qualities when QUDT is not appropriate.

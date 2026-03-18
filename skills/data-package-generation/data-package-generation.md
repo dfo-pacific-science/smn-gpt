@@ -5,13 +5,15 @@ description: Generate SDP metadata CSVs from user data with CSV-only outputs and
 
 # Data package generation
 
+> Scope note: this is a **working-repo / local-agent skill**, not the offline Custom GPT upload-pack skill. It may assume local repo context and local R/Python tooling. For the no-network Custom GPT version, use `custom-gpt-pack/04-SKILLS-GUIDE.md`.
+
 Use this skill when the user wants to create or update SDP metadata files, where an SDP (Salmon Data Package) is a small folder of CSV metadata files plus data files, and metadata means data about the data, like names and descriptions.
 
 ## References
 
-- SPECIFICATION.md is normative (normative means it defines what is valid).
-- schema/glossary.md is the shared field glossary (a glossary is a list of field definitions used to keep wording consistent).
-- Canonical examples: `examples/canonical-basic/` (no semantics) and `examples/canonical-semantics/` (with IRIs and codes); see examples/README.md for workflows.
+- `custom-gpt-pack/02-SPECIFICATION.md` is normative (normative means it defines what is valid).
+- `schema/glossary.md` is the shared field glossary (a glossary is a list of field definitions used to keep wording consistent).
+- Canonical examples live in `examples/canonical-basic/` (no semantics) and `examples/canonical-semantics/` (with IRIs and codes); use the repo `README.md` and `custom-gpt-pack/13-16` files for the deployment-oriented example set.
 
 ## Data minimization
 
@@ -35,7 +37,7 @@ Request:
 4. Build column_dictionary.csv:
    - Set column_role and value_type from the data.
    - For measurement columns, include term_iri, unit_iri, property_iri, and entity_iri; I-ADOPT is a standard for describing variables by parts like property and entity.
-   - For vocabulary/ontology selection (term_iri, property_iri, entity_iri, etc), follow `docs/vocabulary.md`.
+   - For vocabulary/ontology selection (term_iri, property_iri, entity_iri, etc), follow `custom-gpt-pack/05-VOCABULARY-GUIDE.md`.
 5. If categorical columns exist (a categorical column stores codes or labels from a fixed list), build codes.csv.
 
 ## Response template (ordered outputs)

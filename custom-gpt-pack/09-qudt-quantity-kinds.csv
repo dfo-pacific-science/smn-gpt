@@ -1,0 +1,14 @@
+iri,label,description
+http://qudt.org/vocab/quantitykind/Count,Count,Number of discrete items
+http://qudt.org/vocab/quantitykind/DimensionlessRatio,Dimensionless Ratio,"Ratio without units (rates, proportions)"
+http://qudt.org/vocab/quantitykind/Length,Length,"Linear extent (fish length, distance)"
+http://qudt.org/vocab/quantitykind/Mass,Mass,Amount of matter (fish weight)
+http://qudt.org/vocab/quantitykind/Time,Time,Duration or elapsed time
+http://qudt.org/vocab/quantitykind/Temperature,Temperature,Thermal measure (water temperature)
+http://qudt.org/vocab/quantitykind/Area,Area,Two-dimensional extent
+http://qudt.org/vocab/quantitykind/Volume,Volume,Three-dimensional extent
+http://qudt.org/vocab/quantitykind/Frequency,Frequency,Rate of occurrence
+http://qudt.org/vocab/quantitykind/Density,Density,Mass per unit volume
+http://qudt.org/vocab/quantitykind/Velocity,Velocity,Rate of change of position
+http://qudt.org/vocab/quantitykind/MassPerArea,Mass Per Area,Mass per unit area (biomass density)
+http://qudt.org/vocab/quantitykind/AmountOfSubstancePerUnitVolume,Concentration,Amount per unit volume

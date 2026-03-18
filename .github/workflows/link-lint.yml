@@ -16,9 +16,13 @@ jobs:
           args: >
             --no-progress
             --verbose
-            SYSTEM-PROMPT.md
-            docs/entrypoints.md
+            README.md
+            dependencies.md
+            naming_conventions.md
+            tidy_data_guide.md
+            schema/glossary.md
+            skills/*.md
             skills/**/*.md
-            examples/README.md
+            custom-gpt-pack/*.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

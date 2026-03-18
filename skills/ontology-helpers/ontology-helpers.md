@@ -5,6 +5,8 @@ description: Helper scripts and guidance for ontology term mapping: detecting mi
 
 # Ontology Helpers
 
+> Scope note: this is a **working-repo / local-agent skill**. It assumes a local repo checkout and local Python if you run the helper scripts. The offline Custom GPT upload pack cannot run these scripts; use `custom-gpt-pack/17-github-issue-templates.md` and `custom-gpt-pack/18-validation-checklist.md` there instead.
+
 Use this skill when:
 - You need to find missing semantics in column_dictionary/codes (measurement or categorical columns).
 - You need to draft a GitHub issue URL or Markdown for new terms.
@@ -12,11 +14,11 @@ Use this skill when:
 
 ## Scripts (run from repo root)
 - Detect missing IRIs and draft gpt_proposed_terms skeleton:
-  `python smn-gpt/skills/ontology-helpers/scripts/detect_missing_iris.py --dictionary path/to/column_dictionary.csv --output gpt_proposed_terms.csv`
+  `python skills/ontology-helpers/scripts/detect_missing_iris.py --dictionary path/to/column_dictionary.csv --output gpt_proposed_terms.csv`
 - Draft new-term issue Markdown/URL:
-  `python smn-gpt/skills/ontology-helpers/scripts/draft_issue_url.py --label "escapement count" --definition "Count..." --term-type skos_concept --parent-iri <iri>`
+  `python skills/ontology-helpers/scripts/draft_issue_url.py --label "escapement count" --definition "Count..." --term-type skos_concept --parent-iri <iri>`
 - Check categorical codes coverage:
-  `python smn-gpt/skills/ontology-helpers/scripts/check_codes_vs_dictionary.py --dictionary column_dictionary.csv --codes codes.csv`
+  `python skills/ontology-helpers/scripts/check_codes_vs_dictionary.py --dictionary column_dictionary.csv --codes codes.csv`
 
 ## When to run
 - After drafting/receiving column_dictionary.csv (with or without codes.csv) to find gaps.
@@ -62,7 +64,7 @@ Run through this checklist after generating column_dictionary.csv and before del
 ### Entity selection consistency
 - [ ] SMU-level tables use `entity_iri = https://w3id.org/gcdfo/salmon#StockManagementUnit`
 - [ ] CU-level tables use `entity_iri = https://w3id.org/gcdfo/salmon#ConservationUnit`
-- [ ] Population-level tables use `entity_iri = https://w3id.org/gcdfo/salmon#Stock` (until a population class exists in `dfo-salmon.ttl`)
+- [ ] Population-level tables use `entity_iri = https://w3id.org/gcdfo/salmon#Stock` (until a dedicated population class exists in the DFO Salmon Ontology source/term set)
 - [ ] Individual fish observations use `entity_iri = http://rs.tdwg.org/dwc/terms/Organism`
 - [ ] User confirmed entity selections via pattern-based confirmation workflow (see i-adopt-decomposition.md)
 
@@ -83,8 +85,8 @@ Entity selection is critical for I-ADOPT decomposition. Use these rules to deter
 |--------------|----------------|-----|-----------|
 | `smu_*` | StockManagementUnit | `https://w3id.org/gcdfo/salmon#StockManagementUnit` | Stock Management Unit data describes SMU-level aggregations |
 | `cu_*` | ConservationUnit | `https://w3id.org/gcdfo/salmon#ConservationUnit` | Conservation Unit data describes CU-level metrics |
-| `pop_*` | Stock (fallback) | `https://w3id.org/gcdfo/salmon#Stock` | Use until a population class exists in `dfo-salmon.ttl` |
-| `indicator_*` | Stock (fallback) | `https://w3id.org/gcdfo/salmon#Stock` | Use until a population class exists in `dfo-salmon.ttl` |
+| `pop_*` | Stock (fallback) | `https://w3id.org/gcdfo/salmon#Stock` | Use until a dedicated population class exists in the DFO Salmon Ontology source/term set |
+| `indicator_*` | Stock (fallback) | `https://w3id.org/gcdfo/salmon#Stock` | Use until a dedicated population class exists in the DFO Salmon Ontology source/term set |
 | `pfma_*` | Stock (catch constrained by area) | `https://w3id.org/gcdfo/salmon#Stock` | Prefer a PFMA constraint concept; propose a class if needed |
 
 ### Column name overrides

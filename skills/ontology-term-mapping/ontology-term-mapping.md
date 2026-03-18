@@ -5,13 +5,15 @@ description: Map SDP columns and codes to ontology terms using DFO Salmon Ontolo
 
 # Ontology term mapping
 
+> Scope note: this is a **working-repo / local-agent skill**. It may assume local repo context and, where explicitly mentioned, live term-search/network access. For the offline Custom GPT upload-pack version, use `custom-gpt-pack/04-SKILLS-GUIDE.md`, `custom-gpt-pack/05-VOCABULARY-GUIDE.md`, and the bundled CSV files in `custom-gpt-pack/`.
+
 Use this skill when the user wants IRIs for columns or codes, and you need to map them to ontology terms (an ontology is a formal model of concepts and relationships).
 
 ## References
-- dfo-salmon.ttl is a schema-only vocabulary file (a schema is a list of fields and rules, and a vocabulary file is a list of terms), not data.
-- schema/glossary.md is the shared field glossary (a glossary is a list of field definitions used to keep wording consistent).
-- SPECIFICATION.md is normative (normative means it defines what is valid).
-- docs/vocabulary.md is the canonical vocabulary/ontology guidance for SDP semantics fields.
+- `custom-gpt-pack/07-dfo-salmon-terms.csv` and `custom-gpt-pack/19-salmon-domain-terms.csv` are the packaged lookup files; the live ontology sources remain the DFO Salmon Ontology / Salmon Domain Ontology themselves, not data tables.
+- `schema/glossary.md` is the shared field glossary (a glossary is a list of field definitions used to keep wording consistent).
+- `custom-gpt-pack/02-SPECIFICATION.md` is normative (normative means it defines what is valid).
+- `custom-gpt-pack/05-VOCABULARY-GUIDE.md` is the canonical vocabulary/ontology guidance for SDP semantics fields.
 - Canonical semantics example lives in `examples/canonical-semantics/`.
 - Helper scripts: see `skills/ontology-helpers/scripts/` for gap detection and issue drafting.
 

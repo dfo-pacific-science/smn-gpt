@@ -5,12 +5,14 @@ description: Draft new term requests and gpt_proposed_terms.csv rows when no exi
 
 # Ontology term creation
 
+> Scope note: this is a **working-repo / local-agent skill**. For the offline Custom GPT upload-pack path, pair `custom-gpt-pack/17-github-issue-templates.md` with `custom-gpt-pack/05-VOCABULARY-GUIDE.md` instead.
+
 Use this skill when no existing term fits and a new term is needed for the ontology, and an ontology is a formal model of concepts and relationships.
 
 ## Guardrails
 - Never invent IRIs (an IRI is a web-style identifier for a concept).
 - Avoid punning: punning means reusing the same IRI as both an OWL class and a SKOS concept.
-- Vocabulary/ontology guidance for SDP semantics lives in `docs/vocabulary.md`.
+- Vocabulary/ontology guidance for SDP semantics lives in `custom-gpt-pack/05-VOCABULARY-GUIDE.md`.
 
 ## gpt_proposed_terms.csv schema
 Required fields:

@@ -1,0 +1,93 @@
+iri,label,definition,type,parent_iri
+http://w3id.org/salmon/AggregatedMeasurement,Aggregated measurement,,owl_class,http://w3id.org/salmon/Measurement
+http://w3id.org/salmon/BodyShape,Body shape,,owl_class,http://w3id.org/salmon/Characteristic
+http://w3id.org/salmon/CatchContext,Catch context,,skos_concept,http://w3id.org/salmon/MeasurementContext
+http://w3id.org/salmon/Characteristic,Characteristic,,owl_class,http://www.w3.org/ns/sosa/Property
+http://w3id.org/salmon/DataQualityAssessment,Data quality assessment,"An assessment artifact describing confidence, uncertainty, and quality constraints for a salmon data product or metric.",owl_class,http://purl.obolibrary.org/obo/IAO_0000030
+http://w3id.org/salmon/Deme,Deme,"A local interbreeding group within a species; in salmon systems, typically corresponding to a spawning-site-scale biological unit.",owl_class,http://rs.tdwg.org/dwc/terms/Organism
+http://w3id.org/salmon/Entity,Entity,,owl_class,http://www.w3.org/ns/sosa/FeatureOfInterest
+http://w3id.org/salmon/EnumerationMethod,Enumeration method,,owl_class,http://www.w3.org/ns/sosa/Procedure
+http://w3id.org/salmon/Escapement,Escapement,The number of mature salmon that pass through (or escape) fisheries and return to fresh water to spawn.,owl_class,http://purl.obolibrary.org/obo/BFO_0000015
+http://w3id.org/salmon/EscapementMeasurement,Escapement measurement,A measurement or estimate of escapement tied to a stock and a survey event.,owl_class,http://purl.obolibrary.org/obo/IAO_0000109
+http://w3id.org/salmon/EscapementSurveyEvent,Escapement survey event,A survey event specifically for estimating escapement.,owl_class,http://w3id.org/salmon/SurveyEvent
+http://w3id.org/salmon/EventType,Event type,A class used to categorize fisheries or survey event instances by operational type.,owl_class,
+http://w3id.org/salmon/ExploitationRate,Exploitation rate,The proportion of returning adult salmon removed by fishing activity over a defined period.,owl_class,http://w3id.org/salmon/TargetOrLimitRateOrAbundance
+http://w3id.org/salmon/FishForkLengthMeasurementMethod,Fish fork-length measurement method,,owl_class,http://w3id.org/salmon/FishLengthMeasurementMethod
+http://w3id.org/salmon/FishLength,Fish length,,owl_class,http://w3id.org/salmon/MorphologicalCharacteristic
+http://w3id.org/salmon/FishLengthMeasurementMethod,Fish length measurement method,,owl_class,http://www.w3.org/ns/sosa/Procedure
+http://w3id.org/salmon/FishLengthMeasurementType,Fish length measurement type,,owl_class,http://w3id.org/salmon/Measurement
+http://w3id.org/salmon/FishWeight,Fish weight,,owl_class,http://w3id.org/salmon/MorphologicalCharacteristic
+http://w3id.org/salmon/FishingType,Fishing type,,owl_class,http://w3id.org/salmon/EventType
+http://w3id.org/salmon/ForkLengthMeasurement,Fork-length measurement,,owl_class,http://w3id.org/salmon/FishLengthMeasurementType
+http://w3id.org/salmon/ForkLengthMeasurementFieldMethod,Fork-length field method,,owl_class,http://w3id.org/salmon/ForkLengthMeasurementMethod
+http://w3id.org/salmon/ForkLengthMeasurementLabMethod,Fork-length lab method,,owl_class,http://w3id.org/salmon/ForkLengthMeasurementMethod
+http://w3id.org/salmon/ForkLengthMeasurementMethod,Fork-length measurement method,,owl_class,http://w3id.org/salmon/FishForkLengthMeasurementMethod
+http://w3id.org/salmon/GeographicFeature,Geographic feature,,owl_class,http://www.opengis.net/ont/geosparql#Feature
+http://w3id.org/salmon/HabitatUnit,Habitat unit,,owl_class,http://w3id.org/salmon/Entity
+http://w3id.org/salmon/HatcheryOrigin,Hatchery-origin,,skos_concept,http://w3id.org/salmon/SalmonOrigin
+http://w3id.org/salmon/InRiverPhase,In-river phase,,skos_concept,http://w3id.org/salmon/LifePhase
+http://w3id.org/salmon/IndicatorRiver,Indicator river,A river or stream used as a relatively reliable abundance index for nearby salmon returns due to survey intensity and method quality.,owl_class,http://w3id.org/salmon/GeographicFeature
+http://w3id.org/salmon/IndividualMeasurement,Individual measurement,,owl_class,http://w3id.org/salmon/Measurement
+http://w3id.org/salmon/Life-HistoryCharacteristic,Life-history characteristic,,owl_class,http://w3id.org/salmon/Characteristic
+http://w3id.org/salmon/LifePhase,Life phase,,skos_concept,
+http://w3id.org/salmon/LifePhaseScheme,Life phase scheme,A concept scheme for life-phase terms.,skos_concept,
+http://w3id.org/salmon/LimitReferencePoint,Limit reference point,A lower threshold indicating stock status where stronger mitigation or rebuilding action is triggered.,owl_class,http://w3id.org/salmon/ReferencePoint
+http://w3id.org/salmon/LowerBiologicalBenchmark,Lower biological benchmark,Lower benchmark value used to delineate lower status boundaries for salmon assessment units.,owl_class,http://w3id.org/salmon/MetricBenchmark
+http://w3id.org/salmon/MainstemPhase,Mainstem phase,,skos_concept,http://w3id.org/salmon/LifePhase
+http://w3id.org/salmon/Measurement,Measurement,A salmon-domain observation focused on one feature of interest and one characteristic.,owl_class,http://w3id.org/salmon/Observation
+http://w3id.org/salmon/MeasurementContext,Measurement context,A context qualifier used to disambiguate interpretation of a measurement.,skos_concept,
+http://w3id.org/salmon/MeasurementContextScheme,Measurement context scheme,A concept scheme for measurement context terms such as catch context and run context.,skos_concept,
+http://w3id.org/salmon/MethodDocumentation,Method documentation,A documented method description linked to how a salmon metric or estimate was produced.,owl_class,http://purl.obolibrary.org/obo/IAO_0000030
+http://w3id.org/salmon/MetricBenchmark,Metric benchmark,Benchmark value for a metric used to delineate status categories.,owl_class,http://purl.obolibrary.org/obo/IAO_0000030
+http://w3id.org/salmon/ModelMeasurement,Model measurement,,owl_class,http://w3id.org/salmon/Measurement
+http://w3id.org/salmon/MorphologicalCharacteristic,Morphological characteristic,,owl_class,http://w3id.org/salmon/Characteristic
+http://w3id.org/salmon/NCBITaxon_8018,Oncorhynchus keta proxy class,,owl_class,http://purl.obolibrary.org/obo/NCBITaxon_8018
+http://w3id.org/salmon/NaturalOrigin,Natural-origin,,skos_concept,http://w3id.org/salmon/SalmonOrigin
+http://w3id.org/salmon/Observation,Observation,,owl_class,http://www.w3.org/ns/sosa/Observation
+http://w3id.org/salmon/ObservedRateOrAbundance,Observed rate or abundance,"A measurement datum representing an empirically observed rate, count, or abundance derived from monitoring or survey data.",owl_class,http://purl.obolibrary.org/obo/IAO_0000109
+http://w3id.org/salmon/OceanPhase,Ocean phase,,skos_concept,http://w3id.org/salmon/LifePhase
+http://w3id.org/salmon/Population,Population,A group of organisms of the same species occupying a defined area that interbreed and share a gene pool.,owl_class,http://rs.tdwg.org/dwc/terms/Organism
+http://w3id.org/salmon/ReferencePoint,Reference point,A target or limit used to guide management actions.,owl_class,http://purl.obolibrary.org/obo/IAO_0000030
+http://w3id.org/salmon/ReportingOrManagementStratum,Reporting or management stratum,"An information-defined grouping of fish populations used for reporting, conservation assessment, or management purposes across salmon programs.",owl_class,http://purl.obolibrary.org/obo/IAO_0000030
+http://w3id.org/salmon/Run,Run,,owl_class,http://w3id.org/salmon/Life-HistoryCharacteristic
+http://w3id.org/salmon/RunContext,Run context,,skos_concept,http://w3id.org/salmon/MeasurementContext
+http://w3id.org/salmon/SalmonGroup,Salmon group,,owl_class,http://w3id.org/salmon/Entity
+http://w3id.org/salmon/SalmonIndividual,Salmon individual,,owl_class,http://w3id.org/salmon/Entity
+http://w3id.org/salmon/SalmonLifeStage,Salmon life stage,,owl_class,http://w3id.org/salmon/Characteristic
+http://w3id.org/salmon/SalmonOrigin,Salmon origin,,skos_concept,
+http://w3id.org/salmon/SalmonOriginScheme,Salmon origin scheme,A concept scheme for salmon origin terms such as natural and hatchery origin.,skos_concept,
+http://w3id.org/salmon/SalmonPopulationGroup,Salmon population group,,owl_class,http://w3id.org/salmon/SalmonGroup
+http://w3id.org/salmon/SalmonStockUnit,Salmon stock unit,,owl_class,http://w3id.org/salmon/SalmonGroup
+http://w3id.org/salmon/SamplingEvent,Sampling event,"A sampling activity that targets a geographic feature, yields a sample, and records a time.",owl_class,http://www.w3.org/ns/sosa/Sampling
+http://w3id.org/salmon/SpawnerStageContext,Spawner stage context,,skos_concept,http://w3id.org/salmon/MeasurementContext
+http://w3id.org/salmon/StandardLengthMeasurement,Standard length measurement,,owl_class,http://w3id.org/salmon/FishLengthMeasurementType
+http://w3id.org/salmon/Stock,Stock,An operationally defined grouping of salmon used for assessment and management purposes.,owl_class,http://w3id.org/salmon/ReportingOrManagementStratum
+http://w3id.org/salmon/StockAssessment,Stock assessment,The scientific process of analyzing data to estimate abundance and productivity across time.,owl_class,http://purl.obolibrary.org/obo/BFO_0000015
+http://w3id.org/salmon/SurveyEvent,Survey event,A field event that collects information about fish populations to evaluate status and support management decisions.,owl_class,http://rs.tdwg.org/dwc/terms/Event
+http://w3id.org/salmon/SurvivalOrMortalityContext,Survival or mortality context,,skos_concept,http://w3id.org/salmon/MeasurementContext
+http://w3id.org/salmon/TargetOrLimitRateOrAbundance,Target or limit rate or abundance,A value specification representing a policy- or model-defined target or limit.,owl_class,http://purl.obolibrary.org/obo/IAO_0000109
+http://w3id.org/salmon/TerminalPhase,Terminal phase,,skos_concept,http://w3id.org/salmon/LifePhase
+http://w3id.org/salmon/TotalExploitationRate,Total exploitation rate,The overall proportion of returning adult salmon removed by all fisheries over a defined period.,owl_class,http://w3id.org/salmon/ExploitationRate
+http://w3id.org/salmon/TotalLengthMeasurement,Total length measurement,,owl_class,http://w3id.org/salmon/FishLengthMeasurementType
+http://w3id.org/salmon/UpperBiologicalBenchmark,Upper biological benchmark,Upper benchmark value used to delineate higher status boundaries for salmon assessment units.,owl_class,http://w3id.org/salmon/MetricBenchmark
+http://w3id.org/salmon/alevin,Alevin,,owl_class,http://w3id.org/salmon/SalmonLifeStage
+http://w3id.org/salmon/basedOn,based on,,owl_object_property,
+http://w3id.org/salmon/characteristicFor,characteristic for,,owl_object_property,
+http://w3id.org/salmon/demeOf,deme of,Relates a deme to the population it belongs to.,owl_object_property,
+http://w3id.org/salmon/forkLength,Fork length,,owl_class,
+http://w3id.org/salmon/fusiform,Fusiform,,owl_class,http://w3id.org/salmon/BodyShape
+http://w3id.org/salmon/hasDeme,has deme,Relates a population to one of its constituent demes.,owl_object_property,http://purl.obolibrary.org/obo/RO_0002351
+http://w3id.org/salmon/hasEventType,has event type,,owl_object_property,
+http://w3id.org/salmon/hasFeatureOfInterest,has feature of interest,Relates a survey or observation event to the reporting or management stratum that is the focus of inference.,owl_object_property,http://www.w3.org/ns/sosa/hasFeatureOfInterest
+http://w3id.org/salmon/hasMeasurement,has measurement,,owl_object_property,
+http://w3id.org/salmon/hasObservationResult,has observation result,Relates a survey event to the measurement datum produced by that event.,owl_object_property,http://www.w3.org/ns/sosa/hasResult
+http://w3id.org/salmon/hasPopulation,has population,Relates a reporting or management stratum to one of its constituent populations.,owl_object_property,http://purl.obolibrary.org/obo/RO_0002351
+http://w3id.org/salmon/isSampleOfStratum,is sample of stratum,Relates a sample to the reporting or management stratum it represents in analysis.,owl_object_property,http://www.w3.org/ns/sosa/isSampleOf
+http://w3id.org/salmon/observedTaxonFamily,observed taxon family,,owl_object_property,
+http://w3id.org/salmon/observedTaxonSpecies,observed taxon species,,owl_object_property,
+http://w3id.org/salmon/orbitalLength,Orbital length,,owl_class,http://w3id.org/salmon/FishLength
+http://w3id.org/salmon/populationOf,population of,Relates a population to the reporting or management stratum it belongs to.,owl_object_property,
+http://w3id.org/salmon/seiningEvent,Seining event,,owl_class,http://w3id.org/salmon/FishingType
+http://w3id.org/salmon/standardLength,Standard length,,owl_class,http://w3id.org/salmon/FishLength
+http://w3id.org/salmon/totalLength,Total length,,owl_class,http://w3id.org/salmon/FishLength
+http://w3id.org/salmon/usesObservationProcedure,uses observation procedure,Relates a survey event to the protocol or procedure used to conduct it.,owl_object_property,http://www.w3.org/ns/sosa/usedProcedure

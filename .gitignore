@@ -1,7 +1,7 @@
 docs/
+.DS_Store
 schema/tables.csv
 SPECIFICATION.md
-README.md
 iadopt-terminologies.csv
 dfo-salmon.ttl
 CONVENTIONS.md

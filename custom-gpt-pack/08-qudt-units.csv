@@ -1,0 +1,23 @@
+iri,label,symbol,description
+http://qudt.org/vocab/unit/NUM,Number,,Dimensionless count
+http://qudt.org/vocab/unit/UNITLESS,Unitless,,Dimensionless ratio or proportion
+http://qudt.org/vocab/unit/PERCENT,Percent,%,Percentage (parts per hundred)
+http://qudt.org/vocab/unit/YR,Year,yr,Time duration in years
+http://qudt.org/vocab/unit/DAY,Day,d,Time duration in days
+http://qudt.org/vocab/unit/HR,Hour,h,Time duration in hours
+http://qudt.org/vocab/unit/MIN,Minute,min,Time duration in minutes
+http://qudt.org/vocab/unit/SEC,Second,s,Time duration in seconds
+http://qudt.org/vocab/unit/M,Meter,m,Length in meters
+http://qudt.org/vocab/unit/CentiM,Centimeter,cm,Length in centimeters
+http://qudt.org/vocab/unit/MilliM,Millimeter,mm,Length in millimeters
+http://qudt.org/vocab/unit/KiloM,Kilometer,km,Length in kilometers
+http://qudt.org/vocab/unit/KiloGM,Kilogram,kg,Mass in kilograms
+http://qudt.org/vocab/unit/GM,Gram,g,Mass in grams
+http://qudt.org/vocab/unit/MilliGM,Milligram,mg,Mass in milligrams
+http://qudt.org/vocab/unit/DEG_C,Degree Celsius,°C,Temperature in Celsius
+http://qudt.org/vocab/unit/L,Liter,L,Volume in liters
+http://qudt.org/vocab/unit/MilliL,Milliliter,mL,Volume in milliliters
+http://qudt.org/vocab/unit/M2,Square Meter,m²,Area in square meters
+http://qudt.org/vocab/unit/M3,Cubic Meter,m³,Volume in cubic meters
+http://qudt.org/vocab/unit/PER-YR,Per Year,/yr,Rate per year
+http://qudt.org/vocab/unit/PER-DAY,Per Day,/d,Rate per day
